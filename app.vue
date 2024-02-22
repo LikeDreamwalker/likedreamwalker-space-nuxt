@@ -1,7 +1,7 @@
 <template>
+  <NuxtLayout>
     <v-app>
-      <v-card>
-        <v-card-title>sakdljaskldj</v-card-title>
-      </v-card>
+      <NuxtPage />
     </v-app>
+  </NuxtLayout>
 </template>
