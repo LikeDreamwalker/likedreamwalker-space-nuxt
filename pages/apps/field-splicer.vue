@@ -1,8 +1,7 @@
 <template>
   <div>
     <v-card>
-      <v-card-title>LIKEDREAMWALKER</v-card-title>
-      <v-btn to="apps">Apps</v-btn>
+      <v-card-title>字段编辑器</v-card-title>
     </v-card>
   </div>
 </template>

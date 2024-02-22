@@ -8,3 +8,13 @@
     <slot />
   </div>
 </template>
+
+<script setup>
+// import { ref, computed } from 'vue'
+
+onMounted(() => {
+  const router = useRouter()
+  console.log(router.getRoutes())
+})
+
+</script>

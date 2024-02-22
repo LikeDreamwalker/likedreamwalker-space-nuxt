@@ -1,9 +1,10 @@
 <template>
   <div>
     <v-card>
-      <v-card-title>LIKEDREAMWALKER</v-card-title>
-      <v-btn to="apps">Apps</v-btn>
+      <v-card-title>应用</v-card-title>
+      <v-btn to="/apps/field-splicer">field-splicer</v-btn>
     </v-card>
+    <NuxtPage></NuxtPage>
   </div>
 </template>
 <script setup>
