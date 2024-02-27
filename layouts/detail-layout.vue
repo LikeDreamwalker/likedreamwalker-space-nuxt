@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-breadcrumbs :items="['首页 Home', '应用 Apps', '字段拼接器 Field-Splicer']">
+    <v-breadcrumbs :items="breadcrumbs">
       <template v-slot:prepend>
         <v-icon size="small" icon="$vuetify"></v-icon>
       </template>
@@ -10,11 +10,26 @@
 </template>
 
 <script setup>
-// import { ref, computed } from 'vue'
+import { computed, onMounted } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 
-onMounted(() => {
-  const router = useRouter()
-  console.log(router.getRoutes())
+const router = useRouter()
+const route = useRoute()
+
+let routes = []
+
+onMounted(async () => {
+  routes = router.getRoutes()
+})
+
+const breadcrumbs = computed(() => {
+  const pathArray = route.path.split('/').filter(n => n)
+  let breadcrumbs = ['LDWINDEX']
+  pathArray.forEach((path, i) => {
+    const route = routes.find(route => route.path === `/${pathArray.slice(0, i + 1).join('/')}`)
+    breadcrumbs.push(route.meta.renderTitleName || route.name)
+  })
+  return breadcrumbs
 })
 
 </script>

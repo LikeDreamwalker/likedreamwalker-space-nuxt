@@ -9,6 +9,7 @@
 </template>
 <script setup>
 definePageMeta({
-  layout: 'detail-layout'
+  layout: 'detail-layout',
+  renderTitleName: '应用 APPS',
 })
 </script>

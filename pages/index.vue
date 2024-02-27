@@ -8,6 +8,7 @@
 </template>
 <script setup>
 definePageMeta({
-  layout: 'detail-layout'
+  layout: 'detail-layout',
+  renderTitleName: 'LDWINDEX',
 })
 </script>

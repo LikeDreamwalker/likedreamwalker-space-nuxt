@@ -7,6 +7,7 @@
 </template>
 <script setup>
 definePageMeta({
-  layout: 'detail-layout'
+  layout: 'detail-layout',
+  renderTitleName: '字段编辑器 FIELD SPLICER',
 })
 </script>
