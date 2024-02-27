@@ -24,10 +24,16 @@ onMounted(async () => {
 
 const breadcrumbs = computed(() => {
   const pathArray = route.path.split('/').filter(n => n)
-  let breadcrumbs = ['LDWINDEX']
+  let breadcrumbs = [{
+    title: 'LDWINDEX',
+    href: 'index'
+  }]
   pathArray.forEach((path, i) => {
     const route = routes.find(route => route.path === `/${pathArray.slice(0, i + 1).join('/')}`)
-    breadcrumbs.push(route.meta.renderTitleName || route.name)
+    breadcrumbs.push({
+      title: route.meta.renderTitleName,
+      href: route.name
+    })
   })
   return breadcrumbs
 })
