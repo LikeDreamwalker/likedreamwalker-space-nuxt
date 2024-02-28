@@ -1,11 +1,10 @@
 <template>
-  <div>
+  <page-container>
     <v-card>
       <v-card-title>应用</v-card-title>
       <v-btn to="/apps/field-splicer">field-splicer</v-btn>
     </v-card>
-    <NuxtPage></NuxtPage>
-  </div>
+  </page-container>
 </template>
 <script setup>
 definePageMeta({
