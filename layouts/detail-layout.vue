@@ -1,20 +1,22 @@
 <template>
   <div>
-    <v-breadcrumbs :items="breadcrumbs">
-      <template v-slot:prepend>
-        <v-icon size="small" icon="$vuetify"></v-icon>
-      </template>
-      <template v-slot:title="{ item }">
-        <div class="cursor-pointer" @click="go(item.title)">
-          <div v-if="item.title === 'LDWINDEX'">
-            LIKEDREAMWALKER
+    <v-defaults-provider :defaults="{ VBreadcrumbs: { style: 'font-family: Raleway, sans-serif;font-weight: 400;' } }">
+      <v-breadcrumbs :items="breadcrumbs">
+        <template v-slot:prepend>
+          <v-icon size="small" icon="$vuetify"></v-icon>
+        </template>
+        <template v-slot:title="{ item }">
+          <div class="cursor-pointer" @click="go(item.title)">
+            <div v-if="item.title === 'LDWINDEX'">
+              LIKEDREAMWALKER
+            </div>
+            <div v-else>
+              {{ item.title.toUpperCase() }}
+            </div>
           </div>
-          <div v-else>
-            {{ item.title.toUpperCase() }}
-          </div>
-        </div>
-      </template>
-    </v-breadcrumbs>
+        </template>
+      </v-breadcrumbs>
+    </v-defaults-provider>
     <slot />
   </div>
 </template>
