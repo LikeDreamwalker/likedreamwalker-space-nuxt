@@ -9,5 +9,6 @@
 definePageMeta({
   layout: 'detail-layout',
   renderTitleName: '镜湖 MIRROR LAKE',
+  keepalive: true
 })
 </script>

@@ -10,5 +10,6 @@
 definePageMeta({
   layout: 'detail-layout',
   renderTitleName: 'LDWINDEX',
+  keepalive: true
 })
 </script>

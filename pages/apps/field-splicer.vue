@@ -9,5 +9,6 @@
 definePageMeta({
   layout: 'detail-layout',
   renderTitleName: '字段编辑器 FIELD SPLICER',
+  keepalive: true
 })
 </script>

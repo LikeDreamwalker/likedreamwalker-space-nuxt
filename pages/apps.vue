@@ -11,5 +11,6 @@
 definePageMeta({
   layout: 'detail-layout',
   renderTitleName: '应用 APPS',
+  keepalive: true
 })
 </script>

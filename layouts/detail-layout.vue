@@ -4,6 +4,16 @@
       <template v-slot:prepend>
         <v-icon size="small" icon="$vuetify"></v-icon>
       </template>
+      <template v-slot:title="{ item }">
+        <div @click="go(item.title)">
+          <div v-if="item.title === 'LDWINDEX'">
+            LIKEDREAMWALKER
+          </div>
+          <div v-else>
+            {{ item.title.toUpperCase() }}
+          </div>
+        </div>
+      </template>
     </v-breadcrumbs>
     <slot />
   </div>
@@ -11,31 +21,52 @@
 
 <script setup>
 import { computed, onMounted } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
+// import { useRouter, useRoute } from 'vue-router'
 
+let routes = []
+const breadcrumbs = ref([])
+const breadcrumbsMap = ref([])
 const router = useRouter()
 const route = useRoute()
 
-let routes = []
-
 onMounted(async () => {
   routes = router.getRoutes()
+  updateBreadcrumbs()
 })
 
-const breadcrumbs = computed(() => {
+watchEffect(() => {
+  updateBreadcrumbs()
+})
+
+function updateBreadcrumbs() {
   const pathArray = route.path.split('/').filter(n => n)
-  let breadcrumbs = [{
+  breadcrumbs.value = [{
     title: 'LDWINDEX',
-    href: 'index'
+    // href: '/'
+  }]
+  breadcrumbsMap.value = [{
+    title: 'LDWINDEX',
+    href: '/'
   }]
   pathArray.forEach((path, i) => {
     const route = routes.find(route => route.path === `/${pathArray.slice(0, i + 1).join('/')}`)
-    breadcrumbs.push({
-      title: route.meta.renderTitleName,
-      href: route.name
-    })
+    if (route) {
+      breadcrumbs.value.push({
+        title: route.meta.renderTitleName,
+        // href: route.path
+      })
+      breadcrumbsMap.value.push({
+        title: route.meta.renderTitleName,
+        href: route.path
+      })
+    }
   })
-  return breadcrumbs
-})
+}
+
+function go(title) {
+  const link = breadcrumbsMap.value.find(item => item.title === title).href
+  console.log(title, link)
+  navigateTo(link)
+}
 
 </script>
