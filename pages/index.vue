@@ -12,4 +12,6 @@ definePageMeta({
   renderTitleName: 'LDWINDEX',
   keepalive: true
 })
+const state = useGlobalState()
+console.log(state.value.count)
 </script>
