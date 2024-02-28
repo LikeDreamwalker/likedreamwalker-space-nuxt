@@ -5,7 +5,7 @@
         <v-icon size="small" icon="$vuetify"></v-icon>
       </template>
       <template v-slot:title="{ item }">
-        <div @click="go(item.title)">
+        <div class="cursor-pointer" @click="go(item.title)">
           <div v-if="item.title === 'LDWINDEX'">
             LIKEDREAMWALKER
           </div>
