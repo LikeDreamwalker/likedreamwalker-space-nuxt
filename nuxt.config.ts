@@ -23,7 +23,10 @@ export default defineNuxtConfig({
           Raleway: {
             wght: "100..900",
             ital: "100..900",
-            // preload: true,
+          },
+          "Cormorant+Garamond": {
+            wght: [300, 400, 500, 600, 700],
+            ital: [300, 400, 500, 600, 700],
           },
         },
       },
