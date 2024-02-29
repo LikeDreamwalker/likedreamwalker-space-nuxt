@@ -3,13 +3,13 @@
     <v-defaults-provider :defaults="{ VBreadcrumbs: { style: 'font-family: Raleway, sans-serif;font-weight: 400;' } }">
       <v-breadcrumbs :items="breadcrumbs">
         <template v-slot:prepend>
-          <v-icon size="small" icon="$vuetify"></v-icon>
+          <v-img width="1.75rem" height="1.75rem"
+            src="https://ldwid-1258491808.cos.accelerate.myqcloud.com/likedreamwalker.space/logo-square-2%400.33x.png">
+          </v-img>
         </template>
         <template v-slot:title="{ item }">
           <div class="cursor-pointer" @click="go(item.title)">
-            <div v-if="item.title === 'LDWINDEX'">
-              LIKEDREAMWALKER
-            </div>
+            <ldw v-if="item.title === 'LDWINDEX'"></ldw>
             <div v-else>
               {{ item.title.toUpperCase() }}
             </div>
@@ -67,7 +67,6 @@ function updateBreadcrumbs() {
 
 function go(title) {
   const link = breadcrumbsMap.value.find(item => item.title === title).href
-  console.log(title, link)
   navigateTo(link)
 }
 
