@@ -10,8 +10,9 @@
         <template v-slot:title="{ item }">
           <div class="cursor-pointer" @click="go(item.title)">
             <ldw v-if="item.title === 'LDWINDEX'"></ldw>
-            <div v-else>
-              {{ item.title.toUpperCase() }}
+            <div v-else class="d-flex justify-start align-center flex-wrap" style="font-size: 1.25rem;">
+              <div style="font-weight: 900;">{{ item.title + '&nbsp;' }}</div>
+              <div>{{ item.text }}</div>
             </div>
           </div>
         </template>
@@ -55,6 +56,7 @@ function updateBreadcrumbs() {
     if (route) {
       breadcrumbs.value.push({
         title: route.meta.renderTitleName,
+        text: route.meta.renderTitleText,
         // href: route.path
       })
       breadcrumbsMap.value.push({

@@ -9,7 +9,8 @@
 <script setup>
 definePageMeta({
   layout: 'detail-layout',
-  renderTitleName: '应用 APPS',
+  renderTitleName: '应用',
+  renderTitleText: 'APPS',
   keepalive: true
 })
 </script>

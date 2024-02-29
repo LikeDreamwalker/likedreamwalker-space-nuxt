@@ -8,7 +8,8 @@
 <script setup>
 definePageMeta({
   layout: 'detail-layout',
-  renderTitleName: '镜湖 MIRROR LAKE',
+  renderTitleName: '镜湖',
+  renderTitleText: 'MIRROR LAKE',
   keepalive: true
 })
 </script>
