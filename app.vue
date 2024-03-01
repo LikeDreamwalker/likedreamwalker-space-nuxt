@@ -36,7 +36,7 @@ onMounted(() => {
       ? 'dark'
       : 'light'
   }
-  const colors = ['#0066ffee', '#00bbffee', '#ff4500ee', '#c0c0c0ee'];
+  const colors = ['#ff4500cc', '#c0c0c0cc', '#0066ffcc', '#00bbffcc'];
   for (let i = 0; i < 30; i++) {
     circles.value.push({
       id: i,
