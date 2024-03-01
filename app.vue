@@ -4,7 +4,7 @@
       <div class="animation-container">
         <svg v-for="circle in circles" :key="circle.id" class="circle-animation" :style="circle.style"
           viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="45" :fill="circle.color" />
+          <circle cx="50" cy="50" :r="circle.radius" :fill="circle.color" />
         </svg>
       </div>
 
@@ -44,8 +44,9 @@ onMounted(() => {
       style: {
         top: `${Math.random() * 100}%`,
         left: `${Math.random() * 100}%`,
-        animationDuration: `${Math.random() * 5 + 1}s`,
+        animationDuration: `${Math.random() * 10 + 3}s`,
       },
+      radius: Math.random() * 45 + 35,
     });
   }
 })
@@ -80,10 +81,9 @@ onUnmounted(() => {
       position: absolute;
       width: 17rem;
       height: 17rem;
+      // Only use animation name here
       animation: move 17s infinite linear;
     }
-
-
   }
 }
 
