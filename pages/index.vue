@@ -6,13 +6,18 @@
       <v-col class="index-container__subtitle d-flex justify-center align-center pt-0 cursor-default" cols="12">By
         LikeDreamwalker</v-col>
     </v-row>
-    <!-- <v-row class="index-container__menu">
-      <v-col class="index-container__menu-item d-flex justify-center align-baseline" cols="12" v-for="item, index in menu"
-        :key="index">
-        <span class="index-container__menu-item--chn"> {{ item.renderTitleName }}</span>
-        <span class="index-container__menu-item--eng"> / {{ item.renderTitleText }}</span>
+    <v-row class="index-container__menu line">
+      <v-col class="index-container__menu-item d-flex justify-center align-center pa-0 ma-0 mt-2" cols="12"
+        v-for="item, index in menu" :key="index">
+        <hover-card @click="next(item.to)">
+          <div class="my-2 mx-4 cursor-pointer">
+            <span class="index-container__menu-item--chn"> {{ item.renderTitleName }}</span>
+            <span class="index-container__menu-item--eng">&nbsp; / {{ item.renderTitleText }}</span>
+          </div>
+
+        </hover-card>
       </v-col>
-    </v-row> -->
+    </v-row>
   </div>
 </template>
 <script setup>
@@ -34,7 +39,7 @@ const menu = ref([
   },
   {
     renderTitleName: "相册",
-    renderTitleText: "STORIES",
+    renderTitleText: "GALLERY",
     to: "https://stories.ldwid.com/",
   },
 ])
@@ -60,13 +65,13 @@ const menu = ref([
 
 
     &--chn {
-      font-size: 2rem;
-      font-weight: 700;
+      font-size: 1.5rem;
+      font-weight: 600;
     }
 
     &--eng {
-      font-size: 1.5rem;
-      font-weight: 400;
+      font-size: 1.25rem;
+      font-weight: 600;
     }
   }
 }
