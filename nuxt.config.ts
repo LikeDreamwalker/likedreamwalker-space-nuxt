@@ -24,9 +24,9 @@ export default defineNuxtConfig({
             wght: "100..900",
             ital: "100..900",
           },
-          "Cormorant+Garamond": {
-            wght: [300, 400, 500, 600, 700],
-            ital: [300, 400, 500, 600, 700],
+          Glegoo: {
+            wght: [400, 700],
+            ital: [400, 700],
           },
         },
       },

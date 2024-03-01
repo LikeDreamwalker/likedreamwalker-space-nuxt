@@ -1,3 +1,5 @@
 export const useGlobalState = () => {
-  return useState("globalState", () => ({}));
+  return useState("globalState", () => ({
+    theme: "light",
+  }));
 };

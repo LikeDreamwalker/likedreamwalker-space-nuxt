@@ -2,9 +2,16 @@
   <div class="index-container d-flex justify-center align-center align-content-center flex-wrap line">
     <v-row class="index-container__topic">
       <v-col class="index-container__title d-flex justify-center align-center pb-0 cursor-default" cols="12"
-        style="font-size: 3rem;">RETURN</v-col>
-      <v-col class="index-container__subtitle d-flex justify-center align-center pt-0 cursor-default" cols="12">By
-        LikeDreamwalker</v-col>
+        >
+        Return
+      </v-col>
+
+      <v-col class="index-container__subtitle d-flex justify-center align-center pt-0 cursor-default" cols="12">
+        by
+      </v-col>
+      <v-col class="index-container__subtitle d-flex justify-center align-center pt-0 cursor-default" cols="12">
+        LikeDreamwalker
+      </v-col>
     </v-row>
     <v-row class="index-container__menu line">
       <v-col class="index-container__menu-item d-flex justify-center align-center pa-0 ma-0 mt-2" cols="12"
@@ -51,14 +58,13 @@ const menu = ref([
     font-size: 3.25rem;
     font-weight: 700;
     letter-spacing: 0.5rem;
-    font-family: "Cormorant Garamond", serif;
+    font-family: "Glegoo", serif;
   }
 
   &__subtitle {
     font-size: 1.25rem;
     font-weight: 400;
-    font-family: "Cormorant Garamond", serif;
-    font-style: italic;
+    font-family: "Glegoo", serif;
   }
 
   &__menu-item {

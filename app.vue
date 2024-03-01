@@ -1,38 +1,33 @@
 <template>
-  <v-theme-provider :theme="theme">
-    <NuxtLayout class="likedreamwalker-space">
+  <v-theme-provider :theme="globalState.theme">
+    <div class="likedreamwalker-space">
       <div class="animation-container">
         <svg v-for="circle in circles" :key="circle.id" class="circle-animation" :style="circle.style"
           viewBox="0 0 100 100">
           <circle cx="50" cy="50" :r="circle.radius" :fill="circle.color" />
         </svg>
       </div>
-
-      <v-defaults-provider :defaults="{ VApp: { style: 'font-family: Raleway, sans-serif;font-weight: 400;' } }">
-        <v-app>
-          <NuxtPage />
-        </v-app>
-      </v-defaults-provider>
-    </NuxtLayout>
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+    </div>
   </v-theme-provider>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
 const circles = ref([]);
-const theme = ref('light')
-const ready = ref(false)
 let mql
-
+const globalState = useGlobalState()
 onMounted(() => {
   if (typeof window !== 'undefined') {
     mql = window.matchMedia('(prefers-color-scheme: dark)')
     mql.addListener(e => {
-      theme.value = e.matches
+      globalState.value.theme = e.matches
         ? 'dark'
         : 'light'
     })
-    theme.value = mql.matches
+    globalState.value.theme = mql.matches
       ? 'dark'
       : 'light'
   }
@@ -54,7 +49,7 @@ onMounted(() => {
 onUnmounted(() => {
   if (mql) {
     mql.removeListener(e => {
-      theme.value = e.matches
+      globalState.value.theme = e.matches
         ? 'dark'
         : 'light'
     })

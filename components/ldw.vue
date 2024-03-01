@@ -17,10 +17,15 @@
 
   .like {
     font-weight: 900 !important;
+    font-style: italic !important;
+    letter-spacing: 0rem !important;
+    margin-right: 0.1rem;
+    margin-left: -0.3rem;
   }
 
   .dreamwalker {
-    font-weight: 400 !important;
+    font-weight: 500 !important;
+    letter-spacing: 0rem !important;
   }
 }
 </style>

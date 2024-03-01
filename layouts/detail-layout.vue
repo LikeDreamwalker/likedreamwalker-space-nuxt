@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-app>
     <v-defaults-provider :defaults="{ VBreadcrumbs: { style: 'font-family: Raleway, sans-serif;font-weight: 400;' } }">
       <v-breadcrumbs :items="breadcrumbs">
         <template v-slot:prepend>
@@ -17,20 +17,21 @@
           </div>
         </template>
       </v-breadcrumbs>
+
     </v-defaults-provider>
     <slot />
-  </div>
+  </v-app>
 </template>
 
 <script setup>
 import { computed, onMounted } from 'vue'
-// import { useRouter, useRoute } from 'vue-router'
 
 let routes = []
 const breadcrumbs = ref([])
 const breadcrumbsMap = ref([])
 const router = useRouter()
 const route = useRoute()
+const globalState = useGlobalState()
 
 onMounted(async () => {
   routes = router.getRoutes()
