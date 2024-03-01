@@ -1,9 +1,9 @@
 <template>
   <div class="index-container d-flex justify-center align-center align-content-center flex-wrap line">
     <v-row class="index-container__topic">
-      <v-col class="index-container__title d-flex justify-center align-center pb-0" cols="12"
+      <v-col class="index-container__title d-flex justify-center align-center pb-0 cursor-default" cols="12"
         style="font-size: 3rem;">RETURN</v-col>
-      <v-col class="index-container__subtitle d-flex justify-center align-center pt-0" cols="12">By
+      <v-col class="index-container__subtitle d-flex justify-center align-center pt-0 cursor-default" cols="12">By
         LikeDreamwalker</v-col>
     </v-row>
     <!-- <v-row class="index-container__menu">

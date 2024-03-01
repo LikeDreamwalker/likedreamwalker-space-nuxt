@@ -1,12 +1,12 @@
 <template>
   <v-theme-provider :theme="theme">
     <NuxtLayout class="likedreamwalker-space">
-      <!-- <div class="animation-container">
+      <div class="animation-container">
         <svg v-for="circle in circles" :key="circle.id" class="circle-animation" :style="circle.style"
           viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="45" fill="#0066ff" />
+          <circle cx="50" cy="50" r="45" :fill="circle.color" />
         </svg>
-      </div> -->
+      </div>
 
       <v-defaults-provider :defaults="{ VApp: { style: 'font-family: Raleway, sans-serif;font-weight: 400;' } }">
         <v-app>
@@ -21,7 +21,7 @@
 import { ref, onMounted } from 'vue'
 const circles = ref([]);
 const theme = ref('light')
-
+const ready = ref(false)
 let mql
 
 onMounted(() => {
@@ -36,14 +36,15 @@ onMounted(() => {
       ? 'dark'
       : 'light'
   }
-  for (let i = 0; i < 10; i++) {
+  const colors = ['#0066ffee', '#00bbffee', '#ff4500ee', '#c0c0c0ee'];
+  for (let i = 0; i < 30; i++) {
     circles.value.push({
       id: i,
+      color: colors[Math.floor(Math.random() * colors.length)],
       style: {
         top: `${Math.random() * 100}%`,
         left: `${Math.random() * 100}%`,
         animationDuration: `${Math.random() * 5 + 1}s`,
-        animationDelay: `${Math.random() * 2}s`,
       },
     });
   }
@@ -73,12 +74,13 @@ onUnmounted(() => {
     left: 0;
     width: 100vw;
     height: 100vh;
+    filter: blur(2rem);
 
     .circle-animation {
       position: absolute;
-      width: 200px;
-      height: 200px;
-      animation: move 5s infinite linear;
+      width: 17rem;
+      height: 17rem;
+      animation: move 17s infinite linear;
     }
 
 
@@ -87,12 +89,12 @@ onUnmounted(() => {
 
 @keyframes move {
   0% {
-    transform: translate(-50%, -50%) scale(0);
+    transform: translate(0, 100%) scale(0);
     opacity: 1;
   }
 
   100% {
-    transform: translate(150%, 150%) scale(1);
+    transform: translate(0, -100%) scale(1);
     opacity: 0;
   }
 }
