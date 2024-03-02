@@ -99,4 +99,12 @@ onUnmounted(() => {
 .line {
   flex: 0 0 100% !important
 }
+
+.opacity-100 {
+  opacity: 1;
+}
+
+.opacity-75 {
+  opacity: 0.75;
+}
 </style>

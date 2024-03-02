@@ -3,8 +3,10 @@
     <v-img :width="`${size * 1.5}rem`" :height="`${size * 2}rem`" class="mr-1"
       src="https://ldwid-1258491808.cos.accelerate.myqcloud.com/likedreamwalker.space/logo-square-2%400.33x.png">
     </v-img>
-    <span class="like" :style="`font-size: ${size}rem;`">LIKE</span>
-    <span class="dreamwalker" :style="`font-size: ${size}rem;`">DREAMWALKER</span>
+    <span class="like"
+      :style="`font-size: ${size}rem; text-shadow: ${size / 10}rem ${size / 10}rem ${size / 2}rem #0066ff66;`">LIKE</span>
+    <span class="dreamwalker"
+      :style="`font-size: ${size}rem; text-shadow: ${size / 10}rem ${size / 10}rem ${size / 2}rem #0066ff66;`">DREAMWALKER</span>
   </div>
 </template>
 
