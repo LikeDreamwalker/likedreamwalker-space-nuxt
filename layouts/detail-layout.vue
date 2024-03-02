@@ -1,11 +1,13 @@
 <template>
   <v-defaults-provider :defaults="{ VApp: { style: 'font-family: Raleway, sans-serif;font-weight: 400;' } }">
     <v-app>
-      <v-breadcrumbs :items="breadcrumbs">
+      <v-breadcrumbs class="flex-wrap" :items="breadcrumbs">
+        <template v-slot:divider></template>
         <template v-slot:title="{ item }">
           <div class="cursor-pointer" @click="go(item.title)">
             <ldw v-if="item.title === 'LDWINDEX'"></ldw>
-            <div v-else class="d-flex justify-start align-center flex-wrap" style="font-size: 1.25rem;">
+            <div v-else class="d-flex justify-start align-center flex-wrap my-1" style="font-size: 1.25rem;">
+              <div class="mx-1">/</div>
               <div style="font-weight: 700;">{{ item.title + '&nbsp;' }}</div>
               <div>{{ item.text }}</div>
             </div>

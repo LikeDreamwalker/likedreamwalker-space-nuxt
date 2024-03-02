@@ -39,7 +39,7 @@ onMounted(() => {
       style: {
         top: `${Math.random() * 100}%`,
         left: `${Math.random() * 100}%`,
-        animationDuration: `${Math.random() * 10 + 5}s`,
+        animationDuration: `${Math.random() * 10 + 10}s`,
       },
       radius: 45,
     });
@@ -74,8 +74,8 @@ onUnmounted(() => {
 
     .circle-animation {
       position: absolute;
-      width: 30rem;
-      height: 30rem;
+      width: 50vh;
+      height: 50vh;
       // Only use animation name here
       animation: move 17s infinite linear;
     }
@@ -84,12 +84,17 @@ onUnmounted(() => {
 
 @keyframes move {
   0% {
-    transform: translate(0, 100%) scale(0);
+    transform: translate(0vw, 100vh) scale(0.5);
     opacity: 1;
   }
 
+  50% {
+    transform: translate(5vw, 0vh) scale(1);
+    opacity: 0.5;
+  }
+
   100% {
-    transform: translate(0, -100%) scale(1);
+    transform: translate(0vw, -100vh) scale(1.5);
     opacity: 0;
   }
 }
@@ -106,5 +111,9 @@ onUnmounted(() => {
 
 .opacity-75 {
   opacity: 0.75;
+}
+
+.opacity-50 {
+  opacity: 0.50;
 }
 </style>

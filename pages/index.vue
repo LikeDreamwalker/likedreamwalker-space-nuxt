@@ -13,9 +13,10 @@
     <v-row class="index-container__menu mt-10 line">
       <v-col class="index-container__menu-item d-flex justify-center align-center pa-0 ma-0 mt-2" cols="12"
         v-for="item, index in menu" :key="index">
-        <hover-card @click="next(item.to)">
+        <hover-card @click="next(item.to, { disabled: item.disabled })">
           <template v-slot:default="props">
-            <div class="my-2 mx-4 cursor-pointer d-flex align-center opacity-75">
+            <div class="my-1 mx-4 cursor-pointer d-flex align-center"
+              :class="item.disabled ? 'opacity-50' : 'opacity-75'">
               <span class="index-container__menu-item--chn">
                 {{ item.renderTitleName }}</span>
               <span class="index-container__menu-item--eng mx-1"></span>
@@ -38,19 +39,34 @@ definePageMeta({
 const menu = ref([
   {
     renderTitleName: "应用",
-    renderTitleText: "APPS",
+    renderTitleText: "APP",
     to: "/apps",
+    disabled: false,
   },
   {
     renderTitleName: "故事",
-    renderTitleText: "STORIES",
+    renderTitleText: "STORY",
     to: "https://stories.ldwid.com/",
+    disabled: false,
   },
-  // {
-  //   renderTitleName: "相册",
-  //   renderTitleText: "GALLERY",
-  //   to: "https://stories.ldwid.com/",
-  // },
+  {
+    renderTitleName: "创作者",
+    renderTitleText: "CREATOR",
+    to: "https://stories.ldwid.com/",
+    disabled: true,
+  },
+  {
+    renderTitleName: "访问旧版",
+    renderTitleText: "BEFORE",
+    to: "https://ldwid.com/",
+    disabled: false,
+  },
+  {
+    renderTitleName: "关于",
+    renderTitleText: "ABOUT",
+    to: "/about",
+    disabled: true,
+  },
 ])
 </script>
 <style lang="scss" scoped>
@@ -71,15 +87,15 @@ const menu = ref([
   }
 
   &__menu-item {
-    text-shadow: 2rem;
+    text-shadow: 0.1rem 0.1rem 0.5rem #c0c0c066;
 
     &--chn {
       font-size: 1.5rem;
-      font-weight: 900;
+      font-weight: 700;
     }
 
     &--eng {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       font-weight: 400;
       font-family: Raleway, sans-serif;
     }
