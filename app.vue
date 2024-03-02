@@ -102,7 +102,8 @@ onUnmounted(() => {
 
 <style lang="scss">
 .line {
-  flex: 0 0 100% !important
+  flex: 0 0 100% !important;
+  width: 100% !important;
 }
 
 .opacity-100 {

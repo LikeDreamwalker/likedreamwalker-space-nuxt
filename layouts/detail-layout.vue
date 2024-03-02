@@ -5,8 +5,12 @@
         <template v-slot:divider></template>
         <template v-slot:title="{ item }">
           <div class="cursor-pointer" @click="go(item.title)">
-            <ldw v-if="item.title === 'LDWINDEX'"></ldw>
-            <div v-else class="d-flex justify-start align-center flex-wrap my-1" style="font-size: 1.25rem;">
+            <div v-if="item.title === 'LDWINDEX'" :class="!mdAndUp ? 'd-flex justify-center align-center' : ''"
+              :style="!mdAndUp ? 'width: 100vw;' : ''">
+              <ldw></ldw>
+            </div>
+            <div v-else class="d-flex justify-start align-center flex-wrap my-1"
+              :style="`font-size: ${mdAndUp ? '1.25rem' : '1rem'}`">
               <div class="mx-1">/</div>
               <div style="font-weight: 700;">{{ item.title + '&nbsp;' }}</div>
               <div>{{ item.text }}</div>
@@ -21,7 +25,8 @@
 </template>
 
 <script setup>
-import { computed, onMounted } from 'vue'
+import { useDisplay } from 'vuetify'
+const { mdAndUp } = useDisplay()
 
 let routes = []
 const breadcrumbs = ref([])

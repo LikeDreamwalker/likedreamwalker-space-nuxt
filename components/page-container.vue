@@ -1,10 +1,8 @@
 <template>
   <div>
-    <v-expand-transition>
-      <div v-if="!isNestedRoute">
-        <slot></slot>
-      </div>
-    </v-expand-transition>
+    <div v-if="!isNestedRoute">
+      <slot></slot>
+    </div>
     <NuxtPage></NuxtPage>
   </div>
 </template>

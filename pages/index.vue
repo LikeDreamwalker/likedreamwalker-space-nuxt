@@ -2,18 +2,19 @@
   <div class="index-container d-flex justify-center align-center align-content-center flex-wrap line">
     <v-row class="index-container__topic">
       <v-col class="index-container__title d-flex justify-center align-center py-0 cursor-default"
-        cols="12">RETURN</v-col>
-      <v-col class="index-container__subtitle d-flex justify-center align-center py-0 mt-n2 cursor-default" cols="12">
+        :style="`font-size: ${mdAndUp ? '8rem' : '5rem'}`" cols="12">RETURN</v-col>
+      <v-col class="index-container__subtitle d-flex justify-center align-center py-0 mt-n4 cursor-default"
+        :style="`font-size: ${mdAndUp ? '1.5rem' : '1rem'}`" cols="12">
         by
       </v-col>
       <v-col class="index-container__subtitle d-flex justify-center align-center py-0  cursor-default" cols="12">
-        <ldw :size="1"></ldw>
+        <ldw :size="mdAndUp ? 1.5 : 1"></ldw>
       </v-col>
     </v-row>
-    <v-row class="index-container__menu mt-10 line">
+    <v-row class="index-container__menu mt-16 line">
       <v-col class="index-container__menu-item d-flex justify-center align-center pa-0 ma-0 mt-2" cols="12"
         v-for="item, index in menu" :key="index">
-        <hover-card @click="next(item.to, { disabled: item.disabled })">
+        <hover-card :disabled="item.disabled" @click="next(item.to)">
           <template v-slot:default="props">
             <div class="my-1 mx-4 cursor-pointer d-flex align-center"
               :class="item.disabled ? 'opacity-50' : 'opacity-75'">
@@ -31,6 +32,8 @@
   </div>
 </template>
 <script setup>
+import { useDisplay } from 'vuetify'
+const { mdAndUp } = useDisplay()
 definePageMeta({
   layout: 'default',
   renderTitleName: 'LDWINDEX',
@@ -58,14 +61,14 @@ const menu = ref([
   {
     renderTitleName: "访问旧版",
     renderTitleText: "BEFORE",
-    to: "https://ldwid.com/",
+    to: "https://v2.ldwid.com/",
     disabled: false,
   },
   {
     renderTitleName: "关于",
     renderTitleText: "ABOUT",
     to: "/about",
-    disabled: true,
+    disabled: false,
   },
 ])
 </script>
@@ -73,7 +76,7 @@ const menu = ref([
 .index-container {
 
   &__title {
-    font-size: 5rem;
+    // font-size: 5rem;
     font-weight: 900;
     letter-spacing: -0.1rem;
     font-family: Raleway, sans-serif;
@@ -81,7 +84,7 @@ const menu = ref([
   }
 
   &__subtitle {
-    font-size: 1rem;
+    // font-size: 1rem;
     font-weight: 300;
     font-family: Raleway, sans-serif;
   }
