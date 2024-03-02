@@ -24,10 +24,6 @@ export default defineNuxtConfig({
             wght: "100..900",
             ital: "100..900",
           },
-          Glegoo: {
-            wght: [400, 700],
-            ital: [400, 700],
-          },
         },
       },
     ],

@@ -1,26 +1,21 @@
 <template>
-  <v-app>
-    <v-defaults-provider :defaults="{ VBreadcrumbs: { style: 'font-family: Raleway, sans-serif;font-weight: 400;' } }">
+  <v-defaults-provider :defaults="{ VApp: { style: 'font-family: Raleway, sans-serif;font-weight: 400;' } }">
+    <v-app>
       <v-breadcrumbs :items="breadcrumbs">
-        <template v-slot:prepend>
-          <v-img width="1.75rem" height="1.75rem"
-            src="https://ldwid-1258491808.cos.accelerate.myqcloud.com/likedreamwalker.space/logo-square-2%400.33x.png">
-          </v-img>
-        </template>
         <template v-slot:title="{ item }">
           <div class="cursor-pointer" @click="go(item.title)">
             <ldw v-if="item.title === 'LDWINDEX'"></ldw>
             <div v-else class="d-flex justify-start align-center flex-wrap" style="font-size: 1.25rem;">
-              <div style="font-weight: 900;">{{ item.title + '&nbsp;' }}</div>
+              <div style="font-weight: 700;">{{ item.title + '&nbsp;' }}</div>
               <div>{{ item.text }}</div>
             </div>
           </div>
         </template>
       </v-breadcrumbs>
 
-    </v-defaults-provider>
-    <slot />
-  </v-app>
+      <slot />
+    </v-app>
+  </v-defaults-provider>
 </template>
 
 <script setup>

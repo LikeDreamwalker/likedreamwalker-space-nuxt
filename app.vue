@@ -31,17 +31,17 @@ onMounted(() => {
       ? 'dark'
       : 'light'
   }
-  const colors = ['#ff450099', '#c0c0c033', '#0066ff99', '#00bbff33'];
-  for (let i = 0; i < 40; i++) {
+  const colors = ['#ff450099', '#c0c0c033', '#0066ff99', '#00bbff66'];
+  for (let i = 0; i < 10; i++) {
     circles.value.push({
       id: i,
       color: colors[Math.floor(Math.random() * colors.length)],
       style: {
         top: `${Math.random() * 100}%`,
         left: `${Math.random() * 100}%`,
-        animationDuration: `${Math.random() * 10 + 3}s`,
+        animationDuration: `${Math.random() * 10 + 5}s`,
       },
-      radius: Math.random() * 45 + 35,
+      radius: 45,
     });
   }
 })
@@ -74,8 +74,8 @@ onUnmounted(() => {
 
     .circle-animation {
       position: absolute;
-      width: 17rem;
-      height: 17rem;
+      width: 30rem;
+      height: 30rem;
       // Only use animation name here
       animation: move 17s infinite linear;
     }

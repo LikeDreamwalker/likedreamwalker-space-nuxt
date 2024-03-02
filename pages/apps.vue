@@ -13,4 +13,11 @@ definePageMeta({
   renderTitleText: 'APPS',
   keepalive: true
 })
+const appsList = ref([
+  {
+    title: '镜湖',
+    subtitle: 'Mirror Lake',
+    description: ''
+  }
+])
 </script>
