@@ -1,14 +1,15 @@
 <template>
   <div class="index-container d-flex justify-center align-center align-content-center flex-wrap line">
-    <v-row class="index-container__topic">
-      <v-col class="index-container__title d-flex justify-center align-center py-0 cursor-default"
-        :style="`font-size: ${mdAndUp ? '8rem' : '5rem'}`" cols="12">RETURN</v-col>
-      <v-col class="index-container__subtitle d-flex justify-center align-center py-0 mt-n4 cursor-default"
-        :style="`font-size: ${mdAndUp ? '1.5rem' : '1rem'}`" cols="12">
+    <v-row class="index-container__topic line">
+      <v-col class="index-container__title d-flex justify-center align-center pa-0 cursor-default line" cols="12">
+        <span>RETURN</span>
+      </v-col>
+      <v-col class="index-container__subtitle d-flex justify-center align-center pa-0 mt-n4 cursor-default flex-wrap"
+        cols="12">
         by
       </v-col>
-      <v-col class="index-container__subtitle d-flex justify-center align-center py-0  cursor-default" cols="12">
-        <ldw :size="mdAndUp ? 1.5 : 1"></ldw>
+      <v-col class="index-container__subtitle d-flex justify-center align-center pa-0  cursor-default" cols="12">
+        <ldw :size="1.5"></ldw>
       </v-col>
     </v-row>
     <v-row class="index-container__menu mt-16 line">
@@ -17,7 +18,7 @@
         <hover-card :disabled="item.disabled" @click="next(item.to)">
           <template v-slot:default="props">
             <div class="my-1 mx-4 cursor-pointer d-flex align-center"
-              :class="item.disabled ? 'opacity-50' : 'opacity-75'">
+              :class="item.disabled ? 'opacity-25' : 'opacity-75'">
               <span class="index-container__menu-item--chn">
                 {{ item.renderTitleName }}</span>
               <span class="index-container__menu-item--eng mx-1"></span>
@@ -74,9 +75,11 @@ const menu = ref([
 </script>
 <style lang="scss" scoped>
 .index-container {
+  width: 100vw;
+  overflow: hidden;
 
   &__title {
-    // font-size: 5rem;
+    font-size: 5rem;
     font-weight: 900;
     letter-spacing: -0.1rem;
     font-family: Raleway, sans-serif;
@@ -84,7 +87,7 @@ const menu = ref([
   }
 
   &__subtitle {
-    // font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: 300;
     font-family: Raleway, sans-serif;
   }

@@ -38,7 +38,7 @@ onMounted(() => {
       color: colors[Math.floor(Math.random() * colors.length)],
       style: {
         top: `${Math.random() * 100}%`,
-        left: `${Math.random() * 100}%`,
+        left: `${Math.random() * 100 - 50}%`,
         animationDuration: `${Math.random() * 10 + 10}s`,
       },
       radius: 45,
@@ -116,5 +116,9 @@ onUnmounted(() => {
 
 .opacity-50 {
   opacity: 0.50;
+}
+
+.opacity-25 {
+  opacity: 0.25;
 }
 </style>
