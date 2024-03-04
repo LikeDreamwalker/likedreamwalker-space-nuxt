@@ -15,11 +15,12 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { useDisplay } from 'vuetify'
 const circles = ref([]);
 let mql
 const globalState = useGlobalState()
 onMounted(() => {
+  const { mdAndUp } = useDisplay()
   if (typeof window !== 'undefined') {
     mql = window.matchMedia('(prefers-color-scheme: dark)')
     mql.addListener(e => {
@@ -32,13 +33,16 @@ onMounted(() => {
       : 'light'
   }
   const colors = ['#ff450099', '#c0c0c033', '#0066ff99', '#00bbff66'];
-  for (let i = 0; i < 10; i++) {
+  const bubbles = mdAndUp.value ? 20 : 6;
+  console.log(mdAndUp.value, bubbles)
+  for (let i = 0; i < bubbles; i++) {
     circles.value.push({
       id: i,
       color: colors[Math.floor(Math.random() * colors.length)],
       style: {
-        top: `${Math.random() * 100}%`,
-        left: `${Math.random() * 100 - 50}%`,
+        // top: `${Math.random() * 100}%`,
+        top: '0%',
+        left: `${Math.random() * 100}%`,
         animationDuration: `${Math.random() * 10 + 10}s`,
       },
       radius: 45,
@@ -104,6 +108,10 @@ onUnmounted(() => {
 .line {
   flex: 0 0 100% !important;
   width: 100% !important;
+}
+
+.opacity-90 {
+  opacity: 0.9;
 }
 
 .opacity-100 {

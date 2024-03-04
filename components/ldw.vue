@@ -12,7 +12,6 @@
 
 <script setup>
 // Props
-import { defineProps } from 'vue'
 const props = defineProps({
   size: {
     type: Number,

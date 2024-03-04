@@ -18,7 +18,7 @@
         <hover-card :disabled="item.disabled" @click="next(item.to)">
           <template v-slot:default="props">
             <div class="my-1 mx-4 cursor-pointer d-flex align-center"
-              :class="item.disabled ? 'opacity-25' : 'opacity-75'">
+              :class="item.disabled ? 'opacity-25' : 'opacity-90'">
               <span class="index-container__menu-item--chn">
                 {{ item.renderTitleName }}</span>
               <span class="index-container__menu-item--eng mx-1"></span>
