@@ -1,4 +1,5 @@
 <template>
+  <SpeedInsights />
   <v-defaults-provider :defaults="{ VApp: { style: 'font-family: Raleway, sans-serif;font-weight: 400;' } }">
     <v-app>
       <v-breadcrumbs class="flex-wrap" :items="breadcrumbs">
@@ -21,9 +22,9 @@
     </v-app>
   </v-defaults-provider>
 </template>
-
 <script setup>
 import { useDisplay } from 'vuetify'
+import { SpeedInsights } from '@vercel/speed-insights/vue';
 const { mdAndUp } = useDisplay()
 
 let routes = []
